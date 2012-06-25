@@ -1,1 +1,6 @@
+#Ignore temp and swp files
+*~
+*.swp
+
+#Ignore node modules
 node_modules/

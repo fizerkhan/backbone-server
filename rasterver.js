@@ -3,8 +3,7 @@
 
 var express = require('express'), 
 	app = express.createServer(), 
-	idCounter = 0, 
-	data = {},
+	data = require("./data"),
 	_ = require('underscore');
 
 app.configure(function () {
@@ -23,8 +22,8 @@ app.get("/:collection", function(req, res) {
 app.post('/:collection', function(req, res){
   console.log('create ' + req.params.collection);
   console.log(req.body.id);
-  req.body.id = idCounter++;
   data[req.params.collection] = data[req.params.collection] || [];
+  req.body.id = data[req.params.collection].length+1;
   data[req.params.collection].push(req.body);
   res.send({ id: req.body.id });
 });
@@ -61,7 +60,7 @@ app.delete('/:collection/:id', function (req,res) {
 	res.send(200);
 });
 
-app.listen(3002);
+app.listen(8080);
 
 function removeModel(collection, id) {
 	if (!data[collection]) {
