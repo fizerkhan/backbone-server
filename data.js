@@ -25,7 +25,7 @@ module.exports = {
 	}
     ],
 
-    // sample fruit collection for fruit shop. Might be stupid!!!
+    // sample animal collection for Zoo. Might be stupid!!!
     animals : [
 	{
 	  id : 1,
